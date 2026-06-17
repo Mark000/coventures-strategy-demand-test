@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Demand-gen test page. Unlinked, paid-traffic only. Keep out of search. -->
+<meta name="robots" content="noindex, nofollow" />
+<title>Strategy that gets executed | Coventures</title>
+<meta name="description" content="Strategy that stays on paper is just an expensive document. Coventures turns strategy into change with entrepreneurs who have already done it." />
+<meta property="og:title" content="Most strategies die in the deck. Yours doesn't have to." />
+<meta property="og:description" content="We turn strategy into change with operators who step inside your organization and drive the work, not advisors who hand you a deck and leave." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="https://cdn.prod.website-files.com/641416cb3df6ef29ee32e0af/64880580a394f56a82b63f15_favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --blue:#007498;
+    --pink:#FF7BAC;
+    --turquoise:#00C5C1;
+    --charcoal:#242731;
+    --light:#f7f7f7;
+    --white:#fff;
+    --radius:28px;
+    --radius-lg:40px;
+    --maxw:1120px;
+    --ink:#242731;
+    --muted:#5b606b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:Poppins,Inter,sans-serif;line-height:1.1;letter-spacing:-0.01em}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    display:inline-block;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--blue);
+    background:rgba(0,116,152,.08);padding:7px 14px;border-radius:40px;margin-bottom:22px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;
+    font-family:Poppins,sans-serif;font-weight:600;font-size:16px;
+    padding:16px 28px;border-radius:var(--radius-lg);text-decoration:none;transition:.25s;
+  }
+  .btn-primary{background:var(--pink);color:var(--charcoal)}
+  .btn-primary:hover{background:#ff62a0;transform:translateY(-2px)}
+  .btn-dark{background:var(--charcoal);color:#fff}
+  .btn-dark:hover{background:#15171d;transform:translateY(-2px)}
+  .btn-sm{padding:11px 20px;font-size:14px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid #ececec}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:Poppins,sans-serif;font-weight:700;font-size:21px;color:var(--charcoal);letter-spacing:-.02em;text-decoration:none}
+  .brand span{color:var(--pink)}
+  .nav .tag{font-size:13px;color:var(--muted);margin-left:14px;border-left:1px solid #ddd;padding-left:14px}
+  @media(max-width:640px){.nav .tag{display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%, var(--light) 100%);padding:84px 0 96px}
+  .hero .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.30;z-index:0}
+  .hero .blob.b1{width:380px;height:380px;background:var(--turquoise);top:-120px;right:-80px}
+  .hero .blob.b2{width:320px;height:320px;background:var(--pink);bottom:-140px;left:-100px}
+  .hero .wrap{position:relative;z-index:1;max-width:880px}
+  .hero h1{font-size:clamp(34px,5.4vw,60px);font-weight:700;margin-bottom:22px}
+  .hero p.sub{font-size:clamp(17px,2.1vw,21px);color:var(--muted);max-width:680px;margin-bottom:34px}
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+  .cta-note{font-size:14px;color:var(--muted)}
+
+  section.block{padding:88px 0}
+  .section-head{max-width:720px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(27px,3.6vw,40px);font-weight:700;margin-bottom:16px}
+  .section-head p{font-size:18px;color:var(--muted)}
+  .bg-light{background:var(--light)}
+  .bg-charcoal{background:var(--charcoal);color:#fff}
+  .bg-charcoal .section-head p, .bg-charcoal .muted{color:#b9bdc7}
+
+  /* contrast table */
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+  .contrast .col{border-radius:var(--radius);padding:30px}
+  .contrast .col.them{background:#fff;border:1px solid #e7e7e7}
+  .contrast .col.us{background:var(--charcoal);color:#fff}
+  .contrast h3{font-size:15px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;font-weight:600}
+  .contrast .col.them h3{color:var(--muted)}
+  .contrast .col.us h3{color:var(--turquoise)}
+  .contrast ul{list-style:none}
+  .contrast li{padding:11px 0;border-top:1px solid rgba(0,0,0,.08);font-size:16px}
+  .contrast .col.us li{border-top:1px solid rgba(255,255,255,.12)}
+  .contrast li:first-child{border-top:none}
+  @media(max-width:720px){.contrast{grid-template-columns:1fr}}
+
+  /* operator + case cards */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.grid3{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid #ececec;border-radius:var(--radius);padding:30px;transition:.25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(36,39,49,.08)}
+  .card .role{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--blue);background:rgba(0,116,152,.08);padding:5px 12px;border-radius:40px;margin-bottom:14px}
+  .card h3{font-size:21px;font-weight:600;margin-bottom:12px}
+  .card ul{list-style:none;margin-top:6px}
+  .card li{position:relative;padding-left:22px;margin-bottom:10px;font-size:15px;color:var(--muted)}
+  .card li:before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--turquoise)}
+
+  .case{background:#fff;border-radius:var(--radius);padding:32px;border:1px solid #ececec;display:flex;flex-direction:column;height:100%}
+  .case .client{font-family:Poppins,sans-serif;font-weight:700;font-size:20px;margin-bottom:6px}
+  .case .outcome{font-size:15px;color:var(--muted);margin-bottom:18px;flex-grow:1}
+  .case .metric{font-family:Poppins,sans-serif;font-weight:700;font-size:30px;color:var(--blue);line-height:1;margin-bottom:18px}
+  .case blockquote{font-size:15px;font-style:italic;color:var(--ink);border-left:3px solid var(--pink);padding-left:16px;margin-top:auto}
+  .case cite{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:10px}
+
+  /* offer + form */
+  .offer-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start}
+  @media(max-width:900px){.offer-grid{grid-template-columns:1fr;gap:36px}}
+  .offer h2{font-size:clamp(27px,3.6vw,40px);font-weight:700;margin-bottom:18px}
+  .offer p{font-size:17px;color:#cfd3db;margin-bottom:16px}
+  .offer .check{display:flex;gap:12px;margin-top:10px;font-size:15px;color:#e7e9ee}
+  .offer .check svg{flex-shrink:0;margin-top:3px}
+  .formcard{background:#fff;color:var(--ink);border-radius:var(--radius-lg);padding:34px}
+  .formcard h3{font-size:20px;font-weight:600;margin-bottom:6px}
+  .formcard .fnote{font-size:14px;color:var(--muted);margin-bottom:22px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:var(--ink)}
+  .field input,.field select,.field textarea{
+    width:100%;font-family:inherit;font-size:15px;padding:13px 15px;border:1px solid #d9dce2;border-radius:14px;background:#fafbfc;color:var(--ink);transition:.2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(0,116,152,.12)}
+  .field textarea{resize:vertical;min-height:96px}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .formcard button{width:100%;justify-content:center;margin-top:6px}
+  .reassure{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
+  .thanks{display:none;text-align:center;padding:30px 10px}
+  .thanks h3{color:var(--blue);font-size:24px;margin-bottom:10px}
+  .preview-flag{font-size:12px;color:#9aa0ab;text-align:center;margin-top:18px;border-top:1px dashed #e1e3e8;padding-top:14px}
+
+  footer{background:var(--charcoal);color:#9aa0ab;padding:40px 0;font-size:14px}
+  .footrow{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
+  .footrow .brand{color:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div style="display:flex;align-items:center">
+      <a href="#" class="brand">coventures<span>.</span></a>
+      <span class="tag">Strategy &amp; Transition</span>
+    </div>
+    <a href="#offer" class="btn btn-dark btn-sm">Get a free operator's take</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="wrap">
+    <span class="eyebrow">For CEOs &amp; transformation leaders</span>
+    <h1>Most strategies die in the deck.</h1>
+    <p class="sub">Yours doesn't have to. We turn strategy into change with entrepreneurs who have already done it: operators who step inside your organization and drive the work, as if the company were their own.</p>
+    <div class="cta-row">
+      <a href="#offer" class="btn btn-primary">Get a free operator's take &rarr;</a>
+      <span class="cta-note">Tell us your challenge. We'll show you how we'd approach it. No pitch.</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY DIFFERENT -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Consulting tells you what to do.<br>Our operators have already done it.</h2>
+      <p>Consultants are paid to recommend. They write the strategy, present it, and move on, leaving the hardest part, making the organization actually change, to you. Our Entrepreneurs-in-Residence work the other way around. They are operators who have built and run businesses through exactly this kind of change. They join your team for the engagement, own the outcome, and stay until the strategy is working, not just written.</p>
+    </div>
+    <div class="contrast">
+      <div class="col them">
+        <h3>Traditional consulting</h3>
+        <ul>
+          <li>Writes the strategy, then exits</li>
+          <li>Bills by the hour, no stake in the result</li>
+          <li>Advisors with frameworks</li>
+        </ul>
+      </div>
+      <div class="col us">
+        <h3>Coventures</h3>
+        <ul>
+          <li>Stays inside the organization through execution</li>
+          <li>Accountable for the outcome, like running their own company</li>
+          <li>Operators who have done it before</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATORS -->
+<section class="block bg-light">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Operators who have already solved this</h2>
+      <p>Tell us your challenge and we match you with an entrepreneur who has lived it. A few from our network:</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <span class="role">Strategy &amp; New Business</span>
+        <h3>Sebastian Aniszewski</h3>
+        <ul>
+          <li>Built Lassila &amp; Tikanoja's innovation function from the ground up over nine years, to commercial break-even</li>
+          <li>Now leads interim strategy and development mandates across industries</li>
+          <li>Turns operating-model change into measurable growth</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="role">Operations &amp; Strategy</span>
+        <h3>Sampo Lehtiniemi</h3>
+        <ul>
+          <li>15+ years leading corporate strategy and transformation</li>
+          <li>Strategy Director at a large energy company; co-designed Helen Ventures, an investment vehicle for carbon-neutral innovation</li>
+          <li>Director roles at Microsoft and global tech firms; a roll-up-your-sleeves operator</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="role">Product &amp; Innovation Leadership</span>
+        <h3>Tom Weckström</h3>
+        <ul>
+          <li>20+ years in innovation, including CTO of a publicly listed company</li>
+          <li>Runs strategy facilitation and product-led growth across energy, software and industrial sectors</li>
+          <li>Pairs an engineering depth with hands-on go-to-market execution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Companies that trusted our operators with the hard part</h2>
+    </div>
+    <div class="grid3">
+      <div class="case">
+        <div class="client">Plugsurfing</div>
+        <div class="outcome">We ran a strategy sprint with their new leadership team, narrowing a dozen options to three and preparing the organization to execute. The company went on to be acquired by FLEETCOR.</div>
+        <blockquote>"Coventures' team did excellent work not only in providing new perspectives and tools to work on strategy, but also in helping us use those tools and methods already during the strategy update process."
+          <cite>Tatu Kulla, CEO, Plugsurfing</cite>
+        </blockquote>
+      </div>
+      <div class="case">
+        <div class="client">Lassila &amp; Tikanoja</div>
+        <div class="metric">2&times; revenue</div>
+        <div class="outcome">An EiR embedded with the Helppopalvelut team for over a year: set the metrics, built the growth engine, and replaced unpredictable campaigns with systematic levers.</div>
+        <blockquote>"They had a good understanding of our venture development needs and were able to bring in the right kind of talent and experience to help us with our ambitious growth targets."
+          <cite>Sebastian Aniszewski, Business Director, L&amp;T</cite>
+        </blockquote>
+      </div>
+      <div class="case">
+        <div class="client">Comforta</div>
+        <div class="outcome">When the pandemic erased their core market overnight, we rebuilt the strategy with their leadership and gave them a clear direction to grow again.</div>
+        <blockquote>"Coventures helped us build a clear business strategy for a customer-centric business."
+          <cite>Jussi Leskinen, Comforta</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER + FORM -->
+<section class="block bg-charcoal" id="offer">
+  <div class="wrap">
+    <div class="offer-grid">
+      <div class="offer">
+        <h2>How would Coventures solve your problem?</h2>
+        <p>Tell us the challenge you're wrestling with. One of our operators, working with our team, will put together a short, tailored take:</p>
+        <div class="check"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00C5C1"/><path d="M6 10.5l2.5 2.5L14 7" stroke="#242731" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>How we'd read your situation</span></div>
+        <div class="check"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00C5C1"/><path d="M6 10.5l2.5 2.5L14 7" stroke="#242731" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The moves we'd make, and who from our network would do it</span></div>
+        <div class="check"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#00C5C1"/><path d="M6 10.5l2.5 2.5L14 7" stroke="#242731" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Where we've done something like it before</span></div>
+        <p style="margin-top:22px">It's a preview of how we actually work. Free, and yours to keep whether or not we take it further.</p>
+      </div>
+
+      <div class="formcard">
+        <form id="takeForm">
+          <h3>Get your operator's take</h3>
+          <p class="fnote">A real person reads every submission.</p>
+          <div class="field two">
+            <div><label for="name">Name</label><input id="name" name="name" required /></div>
+            <div><label for="email">Work email</label><input id="email" name="email" type="email" required /></div>
+          </div>
+          <div class="field two">
+            <div><label for="company">Company</label><input id="company" name="company" required /></div>
+            <div><label for="role">Your role</label><input id="role" name="role" placeholder="e.g. CEO, COO, CDO" /></div>
+          </div>
+          <div class="field">
+            <label for="challenge">The challenge you're facing</label>
+            <textarea id="challenge" name="challenge" required placeholder="In a few sentences, what strategy or change are you trying to make happen?"></textarea>
+          </div>
+          <div class="field">
+            <label for="size">Company size (optional)</label>
+            <select id="size" name="size">
+              <option value="">Select…</option>
+              <option>Under €10M revenue</option>
+              <option>€10M – €100M</option>
+              <option>€100M – €1B</option>
+              <option>Over €1B</option>
+            </select>
+          </div>
+          <!-- UTM capture -->
+          <input type="hidden" name="utm_source" id="utm_source" />
+          <input type="hidden" name="utm_medium" id="utm_medium" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" />
+          <input type="hidden" name="utm_term" id="utm_term" />
+          <input type="hidden" name="utm_content" id="utm_content" />
+          <button type="submit" class="btn btn-primary">Get my operator's take &rarr;</button>
+          <p class="reassure">We'll get back to you within a few business days with our honest read. No sales pitch.</p>
+        </form>
+        <div class="thanks" id="thanks">
+          <h3>Thank you.</h3>
+          <p>We've got your challenge. One of our operators will be in touch within a few business days with a tailored take.</p>
+        </div>
+        <p class="preview-flag">Preview build. Form is not yet connected to HubSpot, no data is stored on submit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footrow">
+    <a href="https://www.coventures.io" class="brand" style="font-size:18px">coventures<span style="color:var(--pink)">.</span></a>
+    <span>Entrepreneurs-in-Residence for new business &middot; coventures.io</span>
+  </div>
+</footer>
+
+<script>
+  // Capture UTM params into the form for when HubSpot is wired up
+  (function(){
+    var p = new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){
+      var el = document.getElementById(k);
+      if(el) el.value = p.get(k) || '';
+    });
+  })();
+  // Preview-only submit: show thank-you state (no backend yet)
+  document.getElementById('takeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('takeForm').style.display='none';
+    document.getElementById('thanks').style.display='block';
+    window.scrollTo({top: document.getElementById('offer').offsetTop - 40, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
